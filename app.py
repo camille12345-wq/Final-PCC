@@ -72,14 +72,13 @@ elif  pagina_seleccionada == 'Gráficos interactivos':
         st.markdown("<div style='text-align: justify; font-size: 20px;'>El gráfico muestra la nube de palabras presenta la recopilación de frecuencias recolectadas sobre la base de datos textual a partir de la variable Cargo Público previo.</div>", unsafe_allow_html=True)
         st.image("nube_cargos_anteriores.png", caption='Nube de palabras Cargos públicos anteriores', width=500)
         pass
-     elif grafico_seleccionado == 'Gráfico de pastel de Nivel de estudios':
+    elif grafico_seleccionado == 'Gráfico de pastel de Nivel de estudios':
         st.markdown("<div style='text-align: justify; font-size: 20px;'>El gráfico de torta interactivo presenta las proporciones de Nivel de estudio alcanzado por cada político.</div>", unsafe_allow_html=True)
         import streamlit.components.v1 as components
         with open("nivel_estudios_torta.html", "r", encoding="utf-8") as f:
             html_content = f.read()
         components.html(html_content, height=500)
         pass
-
     elif grafico_seleccionado == 'Gráfico de pastel de Netflix':
         st.markdown("<div style='text-align: justify; font-size: 20px;'>El gráfico de pastel muestra los tipos de contenidos audiovisuales en la plataforma Netflix, donde un sector representa el 30.4 porciento de los tipos de contenido pertenecen a TV show, mientras que el otro sector representa que el 69.6 porciento del tipo de contenidos pertenece a las series</div>", unsafe_allow_html=True)
         st.image("pastel_netflix.png", caption='Gráfico de pastel de Netflix', width=500)
