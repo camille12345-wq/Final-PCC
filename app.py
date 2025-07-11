@@ -50,3 +50,32 @@ if pagina_seleccionada == 'Denuncias':
 
     # Nota aclaratoria
     st.write("*Para ver la denuncia, copie y pegue el enlace en su navegador.*")
+    
+elif  pagina_seleccionada == 'Gráficos interactivos':
+
+    # Agregamos un título
+    st.markdown("<h1 style='text-align: center;'>Gráficos interactivos y comparación de variables de figuras políticas</h1>", unsafe_allow_html=True)
+    
+    # Creamos una lista de gráficos
+    graficos = ['Nube de palabras Ocupaciones Laborales','Nube de palabras Cargos públicos anteriores', 'Gráfico de pastel de Nivel de estudios', 'Gráfico de pastel de Conocimiento de Lenguas originarias', 'Gráfico de dispersión de Ingresos anuales y Nivel de estudios', 'Gráfico de barras de Cargos públicos previos', 'Gráfico de barras de Inmuebles y Muebles', 'Treemap comparativo Ocupación e Ingresos']
+
+    # Creamos un cuadro de selección en la página de gráficos
+    grafico_seleccionado = st.selectbox('Selecciona un gráfico', graficos)
+    
+    # Mostramos el gráfico seleccionado
+    if grafico_seleccionado == 'Nube de palabras Ocupaciones Laborales':
+        st.markdown("<div style='text-align: justify; font-size: 20px;'>El gráfico que muestra la nube de palabras presenta la recopilación de frecuencias recolectadas sobre la base de datos textual a partir de la variables Ocupación laboral.</div>", unsafe_allow_html=True)
+        st.image("nube_ocupaciones.png", caption='Nube de palabras Ocupaciones Laborales', width=500)
+        pass
+    elif grafico_seleccionado == 'Gráfico de pastel de Netflix':
+        st.markdown("<div style='text-align: justify; font-size: 20px;'>El gráfico de pastel muestra los tipos de contenidos audiovisuales en la plataforma Netflix, donde un sector representa el 30.4 porciento de los tipos de contenido pertenecen a TV show, mientras que el otro sector representa que el 69.6 porciento del tipo de contenidos pertenece a las series</div>", unsafe_allow_html=True)
+        st.image("pastel_netflix.png", caption='Gráfico de pastel de Netflix', width=500)
+        pass
+    elif grafico_seleccionado == 'mapa_peliculas':
+        st.markdown("<div style='text-align: justify; font-size: 20px;'>El mapa interactivo presenta las locaciones de mis 5 películas favoritas (Isla de Perros, Todo sobre mi madre, Las mujeres de verdad tienen curvas, Orgullo y prejuicio y Medianeras).</div>", unsafe_allow_html=True)
+        # Si "mapa_cusco.html" es un archivo HTML (no una imagen), debes mostrarlo con st.components.v1.html
+        import streamlit.components.v1 as components
+        with open("mapa_peliculas.html", "r", encoding="utf-8") as f:
+            html_content = f.read()
+        components.html(html_content, height=500)
+        pass
