@@ -1,6 +1,18 @@
 import streamlit as st
 import pandas as pd
 
+# Generamos 5 páginas en la aplicación web de Streamlit.
+# Generamos una página principal, otra donde contaran su experiencia aprendiendo a programar y una tercera donde presentarán sus gráficos.
+
+# Creamos la lista de páginas
+paginas = ['Inicio', 'Denuncias', 'Nubes de palabra', 'Gráficos interactivos', 'Mapa interactivo']
+
+# Creamos botones de navegación tomando la lista de páginas
+pagina_seleccionada = st.sidebar.selectbox('Selecciona una página', paginas)
+
+# Generamos condicionales para mostrar el contenido de cada página
+if pagina_seleccionada == 'Denuncias':
+
 # Cargar el archivo Excel
 df = pd.read_excel('excel_base_de_datos.xlsx')
 
