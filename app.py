@@ -2,7 +2,7 @@ import streamlit as st
 import pandas as pd
 
 # Cargar el archivo Excel
-df = pd.read_excel('excel_base de datos.xlsx')
+df = pd.read_excel('excel_base_de_datos.xlsx')
 
 # Menú desplegable con los nombres
 politico = st.selectbox('Selecciona una figura política', df['Nombre'].unique())
