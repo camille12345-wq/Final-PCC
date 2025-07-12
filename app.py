@@ -148,7 +148,7 @@ elif  pagina_seleccionada == 'Nubes de palabra':
         pass
     elif grafico_seleccionado_nube == 'Nube de palabras Veronika Mendoza':
         st.markdown("<div style='text-align: justify; font-size: 20px;'>El gráfico muestra una nube de palabras que presenta la recopilación de frecuencias recolectadas sobre la base de noticias relacionadas con las palabras clave con mayor asociación al político.</div>", unsafe_allow_html=True)
-        st.image("nube_palabras_veornika.png", caption='Nube de palabras Veronika Mendoza', width=600)
+        st.image("nube_palabras_veronika.png", caption='Nube de palabras Veronika Mendoza', width=600)
         pass
     elif grafico_seleccionado_nube == 'Nube de palabras Martín Vizcarra':
         st.markdown("<div style='text-align: justify; font-size: 20px;'>El gráfico muestra una nube de palabras que presenta la recopilación de frecuencias recolectadas sobre la base de noticias relacionadas con las palabras clave con mayor asociación al político.</div>", unsafe_allow_html=True)
