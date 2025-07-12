@@ -15,7 +15,7 @@ pagina_seleccionada = st.sidebar.selectbox('Selecciona una página', paginas)
 
 if pagina_seleccionada == "Inicio":
     # Fondo superior
-    st.image("standard_standard_FACHADA_DEL_MINISTERIO__2__2_.jpg", use_column_width=True)
+    #st.image("standard_standard_FACHADA_DEL_MINISTERIO__2__2_.jpg", use_column_width=True)
 
     # Estructura en columnas para centrar el contenido
     col1, col2, col3 = st.columns([1, 2, 1])
