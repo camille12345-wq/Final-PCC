@@ -259,7 +259,7 @@ elif  pagina_seleccionada == 'Nubes de palabra':
         st.markdown("<div style='text-align: justify; font-size: 20px;'>El gráfico muestra una nube de palabras que presenta la recopilación de frecuencias recolectadas sobre la base de noticias relacionadas con las palabras clave con mayor asociación al político.</div>", unsafe_allow_html=True)
         st.image("nube_palabras_salaverry.png", caption='Nube de palabras Daniel Salaverry Villa', width=600)
         pass
-     elif grafico_seleccionado_nube == 'Nube de palabras George Forsyth':
+    elif grafico_seleccionado_nube == 'Nube de palabras George Forsyth':
         st.markdown("<div style='text-align: justify; font-size: 20px;'>El gráfico muestra una nube de palabras que presenta la recopilación de frecuencias recolectadas sobre la base de noticias relacionadas con las palabras clave con mayor asociación al político.</div>", unsafe_allow_html=True)
         st.image("nube_george_forsyth.png", caption='Nube de palabras George Forsyth', width=600)
         pass
