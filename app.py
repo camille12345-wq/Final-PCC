@@ -36,9 +36,12 @@ if pagina_seleccionada == "Inicio":
     )
     #Título personalizado
     st.markdown(
-    "<h1 style='text-align: center;'>"
-    "<span style='color: red;'>Portal de Transparencia</span> "
-    "<span style='color: white;'>Electoral 2026</span>"
+    "<h1 style='background-color: white; padding: 15px; border-radius: 10px; text-align: center;'>"
+    "<span style='color: #b22222;'>Portal</span> "
+    "<span style='color: black;'>de</span> "
+    "<span style='color: #b22222;'>Transparencia</span> "
+    "<span style='color: black;'>Electoral</span> "
+    "<span style='color: #b22222;'>2026</span>"
     "</h1>",
     unsafe_allow_html=True
 )
