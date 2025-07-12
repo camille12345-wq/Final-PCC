@@ -1,0 +1,17 @@
+[theme]
+
+# Primary accent color. (Elementos interactivos)
+primaryColor = "#D8B0B0"
+
+# Background color of the app. (fondo de la página)
+backgroundColor = "#200207"
+
+# Background color used for most interactive widgets. (color de la barra lateral)
+secondaryBackgroundColor = "#010118"
+
+
+# This can be one of the following: (tipografías)
+# - "sans-serif"
+# - "serif"
+# - "monospace"
+#font =
