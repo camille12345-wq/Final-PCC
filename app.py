@@ -12,7 +12,6 @@ paginas = ['Inicio', 'Denuncias', 'Nubes de palabra', 'Gráficos interactivos', 
 pagina_seleccionada = st.sidebar.selectbox('Selecciona una página', paginas)
 
 # Generamos condicionales para mostrar el contenido de cada página
-if pagina_seleccionada == 'Inicio':
 
 
 elif pagina_seleccionada == 'Denuncias':
@@ -118,7 +117,7 @@ elif  pagina_seleccionada == 'Gráficos interactivos':
         components.html(html_content, height=500)
         pass
 
-    elif  pagina_seleccionada == 'Nubes de palabra':
+elif  pagina_seleccionada == 'Nubes de palabra':
 
     # Agregamos un título
     st.markdown("<h1 style='text-align: center;'>Gráficos interactivos y comparación de variables en figuras políticas</h1>", unsafe_allow_html=True)
