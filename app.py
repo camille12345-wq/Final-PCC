@@ -12,7 +12,10 @@ paginas = ['Inicio', 'Denuncias', 'Nubes de palabra', 'Gráficos interactivos', 
 pagina_seleccionada = st.sidebar.selectbox('Selecciona una página', paginas)
 
 # Generamos condicionales para mostrar el contenido de cada página
-if pagina_seleccionada == 'Denuncias':
+if pagina_seleccionada == 'Inicio':
+
+
+elif pagina_seleccionada == 'Denuncias':
 
     # Cargar el archivo Excel
     df = pd.read_excel('excel_base_de_datos.xlsx')
@@ -65,12 +68,12 @@ elif  pagina_seleccionada == 'Gráficos interactivos':
     
     # Mostramos el gráfico seleccionado
     if grafico_seleccionado == 'Nube de palabras Ocupaciones Laborales':
-        st.markdown("<div style='text-align: justify; font-size: 20px;'>El gráfico muestra la nube de palabras presenta la recopilación de frecuencias recolectadas sobre la base de datos textual a partir de la variable Ocupación laboral.</div>", unsafe_allow_html=True)
-        st.image("nube_ocupaciones.png", caption='Nube de palabras Ocupaciones Laborales', width=500)
+        st.markdown("<div style='text-align: justify; font-size: 20px;'>El gráfico muestra una nube de palabras que presenta la recopilación de frecuencias recolectadas sobre la base de datos textual a partir de la variable Ocupación laboral.</div>", unsafe_allow_html=True)
+        st.image("nube_ocupaciones.png", caption='Nube de palabras Ocupaciones Laborales', width=600)
         pass
     elif grafico_seleccionado == 'Nube de palabras Cargos públicos anteriores':
-        st.markdown("<div style='text-align: justify; font-size: 20px;'>El gráfico muestra la nube de palabras presenta la recopilación de frecuencias recolectadas sobre la base de datos textual a partir de la variable Cargo Público previo.</div>", unsafe_allow_html=True)
-        st.image("nube_cargos_anteriores.png", caption='Nube de palabras Cargos públicos anteriores', width=500)
+        st.markdown("<div style='text-align: justify; font-size: 20px;'>El gráfico muestra una nube de palabras que presenta la recopilación de frecuencias recolectadas sobre la base de datos textual a partir de la variable Cargo Público previo.</div>", unsafe_allow_html=True)
+        st.image("nube_cargos_anteriores.png", caption='Nube de palabras Cargos públicos anteriores', width=600)
         pass
     elif grafico_seleccionado == 'Gráfico de pastel de Nivel de estudios':
         st.markdown("<div style='text-align: justify; font-size: 20px;'>El gráfico de torta interactivo presenta las proporciones de Nivel de estudio alcanzado por cada político.</div>", unsafe_allow_html=True)
@@ -79,24 +82,83 @@ elif  pagina_seleccionada == 'Gráficos interactivos':
             html_content = f.read()
         components.html(html_content, height=500)
         pass
-    elif grafico_seleccionado == 'Gráfico de pastel de Netflix':
-        st.markdown("<div style='text-align: justify; font-size: 20px;'>El gráfico de pastel muestra los tipos de contenidos audiovisuales en la plataforma Netflix, donde un sector representa el 30.4 porciento de los tipos de contenido pertenecen a TV show, mientras que el otro sector representa que el 69.6 porciento del tipo de contenidos pertenece a las series</div>", unsafe_allow_html=True)
-        st.image("pastel_netflix.png", caption='Gráfico de pastel de Netflix', width=500)
+    elif grafico_seleccionado == 'Gráfico de pastel de Conocimiento de Lenguas originarias':
+        st.markdown("<div style='text-align: justify; font-size: 20px;'>El gráfico de torta interactivo presenta las proporciones en Conocimientos de Lenguas originarias por cada político.</div>", unsafe_allow_html=True)
+        import streamlit.components.v1 as components
+        with open("lenguas_originarias_torta.html", "r", encoding="utf-8") as f:
+            html_content = f.read()
+        components.html(html_content, height=500)
         pass
-    elif grafico_seleccionado == 'Gráfico de pastel de Netflix':
-        st.markdown("<div style='text-align: justify; font-size: 20px;'>El gráfico de pastel muestra los tipos de contenidos audiovisuales en la plataforma Netflix, donde un sector representa el 30.4 porciento de los tipos de contenido pertenecen a TV show, mientras que el otro sector representa que el 69.6 porciento del tipo de contenidos pertenece a las series</div>", unsafe_allow_html=True)
-        st.image("pastel_netflix.png", caption='Gráfico de pastel de Netflix', width=500)
+    elif grafico_seleccionado == 'Gráfico de dispersión de Ingresos anuales y Nivel de estudios':
+        st.markdown("<div style='text-align: justify; font-size: 20px;'>El gráfico de dispersión interactivo presenta una comparativa entre las variables de Ingresos anuales y Nivel de estudios alcanzado por cada político.</div>", unsafe_allow_html=True)
+        import streamlit.components.v1 as components
+        with open("dispersión_ingresos.html", "r", encoding="utf-8") as f:
+            html_content = f.read()
+        components.html(html_content, height=500)
         pass
-    elif grafico_seleccionado == 'Gráfico de pastel de Netflix':
-        st.markdown("<div style='text-align: justify; font-size: 20px;'>El gráfico de pastel muestra los tipos de contenidos audiovisuales en la plataforma Netflix, donde un sector representa el 30.4 porciento de los tipos de contenido pertenecen a TV show, mientras que el otro sector representa que el 69.6 porciento del tipo de contenidos pertenece a las series</div>", unsafe_allow_html=True)
-        st.image("pastel_netflix.png", caption='Gráfico de pastel de Netflix', width=500)
+    elif grafico_seleccionado == 'Gráfico de barras de Cargos públicos previos':
+        st.markdown("<div style='text-align: justify; font-size: 20px;'>El gráfico de barras interactivo presenta una comparativa entre los cargos públicos ocupados por cada político.</div>", unsafe_allow_html=True)
+        import streamlit.components.v1 as components
+        with open("cargos_anteriores_barras.html", "r", encoding="utf-8") as f:
+            html_content = f.read()
+        components.html(html_content, height=500)
         pass
-    elif grafico_seleccionado == 'Gráfico de pastel de Netflix':
-        st.markdown("<div style='text-align: justify; font-size: 20px;'>El gráfico de pastel muestra los tipos de contenidos audiovisuales en la plataforma Netflix, donde un sector representa el 30.4 porciento de los tipos de contenido pertenecen a TV show, mientras que el otro sector representa que el 69.6 porciento del tipo de contenidos pertenece a las series</div>", unsafe_allow_html=True)
-        st.image("pastel_netflix.png", caption='Gráfico de pastel de Netflix', width=500)
+    elif grafico_seleccionado == 'Gráfico de barras de Inmuebles y Muebles':
+        st.markdown("<div style='text-align: justify; font-size: 20px;'>El gráfico de barras interactivo presenta una comparativa entre la cantidad de Inmuebles y muebles declarados por cada político.</div>", unsafe_allow_html=True)
+        import streamlit.components.v1 as components
+        with open("barras_inmuebles.html", "r", encoding="utf-8") as f:
+            html_content = f.read()
+        components.html(html_content, height=500)
         pass
-    elif grafico_seleccionado == 'Gráfico de pastel de Netflix':
-        st.markdown("<div style='text-align: justify; font-size: 20px;'>El gráfico de pastel muestra los tipos de contenidos audiovisuales en la plataforma Netflix, donde un sector representa el 30.4 porciento de los tipos de contenido pertenecen a TV show, mientras que el otro sector representa que el 69.6 porciento del tipo de contenidos pertenece a las series</div>", unsafe_allow_html=True)
-        st.image("pastel_netflix.png", caption='Gráfico de pastel de Netflix', width=500)
+    elif grafico_seleccionado == 'Treemap comparativo Ocupación e Ingresos':
+        st.markdown("<div style='text-align: justify; font-size: 20px;'>El gráfico Treemap interactivo presenta una comparativa entre la Ocupación laboral y el Ingreso anual por cada político.</div>", unsafe_allow_html=True)
+        import streamlit.components.v1 as components
+        with open("ocupacion_inresos_treemap2.html", "r", encoding="utf-8") as f:
+            html_content = f.read()
+        components.html(html_content, height=500)
         pass
-   
+
+elif  pagina_seleccionada == 'Nubes de palabra':
+
+    # Agregamos un título
+    st.markdown("<h1 style='text-align: center;'>Gráficos interactivos y comparación de variables en figuras políticas</h1>", unsafe_allow_html=True)
+    
+    # Creamos una lista de gráficos
+    graficos_nube = ['Nube de palabras César Acuña Peralta','Nube de palabras Rafael López Aliaga', 'Nube de palabras Keiko Fujimori', 'Nube de palabras Alfonso López-Chau', 'Nube de palabras Fernando Olivera', 'Nube de palabras Veronika Mendoza', 'Nube de palabras Martín Vizcarra', 'Nube de palabras Vladimir Cerrón',]
+
+    # Creamos un cuadro de selección en la página de gráficos
+    grafico_seleccionado_nube = st.selectbox('Selecciona un gráfico', graficos_nube)
+    
+    # Mostramos el gráfico seleccionado
+    if grafico_seleccionado_nube == 'Nube de palabras César Acuña Peralta':
+        st.markdown("<div style='text-align: justify; font-size: 20px;'>El gráfico muestra una nube de palabras que presenta la recopilación de frecuencias recolectadas sobre la base de noticias relacionadas con las palabras clave con mayor asociación al político.</div>", unsafe_allow_html=True)
+        st.image("nube_palabras_acuña.png", caption='Nube de palabras César Acuña Peralta', width=600)
+        pass
+    if grafico_seleccionado_nube == 'Nube de palabras Rafael López Aliaga':
+        st.markdown("<div style='text-align: justify; font-size: 20px;'>El gráfico muestra una nube de palabras que presenta la recopilación de frecuencias recolectadas sobre la base de noticias relacionadas con las palabras clave con mayor asociación al político.</div>", unsafe_allow_html=True)
+        st.image("nube_palabras_aliaga.png", caption='Nube de palabras Rafael López Aliaga', width=600)
+        pass
+    if grafico_seleccionado_nube == 'Nube de palabras Rafael Keiko Fujimori':
+        st.markdown("<div style='text-align: justify; font-size: 20px;'>El gráfico muestra una nube de palabras que presenta la recopilación de frecuencias recolectadas sobre la base de noticias relacionadas con las palabras clave con mayor asociación al político.</div>", unsafe_allow_html=True)
+        st.image("nube_palabras_keiko.png", caption='Nube de palabras Keiko Fujimori', width=600)
+        pass
+    if grafico_seleccionado_nube == 'Nube de palabras Alfonso López-Chau':
+        st.markdown("<div style='text-align: justify; font-size: 20px;'>El gráfico muestra una nube de palabras que presenta la recopilación de frecuencias recolectadas sobre la base de noticias relacionadas con las palabras clave con mayor asociación al político.</div>", unsafe_allow_html=True)
+        st.image("nube_palabras_lopezchau.png", caption='Nube de palabras Alfonso López-Chau', width=600)
+        pass
+    if grafico_seleccionado_nube == 'Nube de palabras Fernando Olivera':
+        st.markdown("<div style='text-align: justify; font-size: 20px;'>El gráfico muestra una nube de palabras que presenta la recopilación de frecuencias recolectadas sobre la base de noticias relacionadas con las palabras clave con mayor asociación al político.</div>", unsafe_allow_html=True)
+        st.image("nube_palabras_olivera.png", caption='Nube de palabras Fernando Olivera', width=600)
+        pass
+    if grafico_seleccionado_nube == 'Nube de palabras Veronika Mendoza':
+        st.markdown("<div style='text-align: justify; font-size: 20px;'>El gráfico muestra una nube de palabras que presenta la recopilación de frecuencias recolectadas sobre la base de noticias relacionadas con las palabras clave con mayor asociación al político.</div>", unsafe_allow_html=True)
+        st.image("nube_palabras_veornika.png", caption='Nube de palabras Veronika Mendoza', width=600)
+        pass
+    if grafico_seleccionado_nube == 'Nube de palabras Martín Vizcarra':
+        st.markdown("<div style='text-align: justify; font-size: 20px;'>El gráfico muestra una nube de palabras que presenta la recopilación de frecuencias recolectadas sobre la base de noticias relacionadas con las palabras clave con mayor asociación al político.</div>", unsafe_allow_html=True)
+        st.image("nube_palabras_vizcarra.png", caption='Nube de palabras Martín Vizcarra', width=600)
+        pass
+    if grafico_seleccionado_nube == 'Nube de palabras Vladimir Cerrón':
+        st.markdown("<div style='text-align: justify; font-size: 20px;'>El gráfico muestra una nube de palabras que presenta la recopilación de frecuencias recolectadas sobre la base de noticias relacionadas con las palabras clave con mayor asociación al político.</div>", unsafe_allow_html=True)
+        st.image("nube_palabras_vladimircerron.png", caption='Nube de palabras Vladimir Cerrón', width=600)
+        pass
