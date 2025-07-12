@@ -12,7 +12,6 @@ paginas = ['Inicio', 'Denuncias', 'Nubes de palabra', 'Gráficos interactivos', 
 pagina_seleccionada = st.sidebar.selectbox('Selecciona una página', paginas)
 
 # Generamos condicionales para mostrar el contenido de cada página
-
 if pagina_seleccionada == "Inicio":
     # Fondo superior
     st.markdown(
@@ -35,22 +34,25 @@ if pagina_seleccionada == "Inicio":
         """,
         unsafe_allow_html=True
     )
-    st.markdown("<h1 style='text-align: center; color: navy;'>Portal de Transparencia Electoral 2026</h1>", unsafe_allow_html=True)
-    
+    #Título personalizado
+    st.markdown(
+    "<h1 style='text-align: center;'>"
+    "<span style='color: red;'>Portal de Transparencia</span> "
+    "<span style='color: white;'>Electoral 2026</span>"
+    "</h1>",
+    unsafe_allow_html=True
+)
     # Estructura en columnas para centrar el contenido
     col1, col2, col3 = st.columns([1, 2, 1])
     with col2:
 
-        st.markdown(
-            """
-            <div style="text-align: justify; font-size: 17px; padding: 10px; border-radius: 10px;">
-                Bienvenido al <strong>Portal de Transparencia</strong>, una herramienta ciudadana para conocer la trayectoria de los principales candidatos presidenciales del <strong>Perú 2026</strong>.
-                <br><br>
-                Explora denuncias, ingresos, ocupaciones, experiencia política, idiomas originarios, y mucho más. Una plataforma pensada para <i>votar de forma informada</i>.
-            </div>
-            """,
-            unsafe_allow_html=True
-        )
+    #Texto de bienvenida
+        st.markdown("""
+<div style='background-color: white; padding: 20px; border-radius: 10px; color: black;'>
+    Bienvenido al Portal de Transparencia, una herramienta ciudadana para conocer la trayectoria de los candidatos presidenciales del 2026 en Perú.
+    Podrás revisar denuncias, ocupación, ingresos, experiencia política y más.
+</div>
+""", unsafe_allow_html=True)
 
         # Botón con estilo centrado
         st.markdown("<br>", unsafe_allow_html=True)
@@ -58,7 +60,8 @@ if pagina_seleccionada == "Inicio":
         if boton:
             st.session_state.pagina_seleccionada = "Denuncias"
             st.experimental_rerun()
-            
+
+#Apartado de denuncias
 elif pagina_seleccionada == 'Denuncias':
 
     # Cargar el archivo Excel
