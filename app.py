@@ -259,3 +259,53 @@ elif  pagina_seleccionada == 'Nubes de palabra':
         st.markdown("<div style='text-align: justify; font-size: 20px;'>El gráfico muestra una nube de palabras que presenta la recopilación de frecuencias recolectadas sobre la base de noticias relacionadas con las palabras clave con mayor asociación al político.</div>", unsafe_allow_html=True)
         st.image("nube_palabras_salaverry.png", caption='Nube de palabras Daniel Salaverry Villa', width=600)
         pass
+     elif grafico_seleccionado_nube == 'Nube de palabras George Forsyth':
+        st.markdown("<div style='text-align: justify; font-size: 20px;'>El gráfico muestra una nube de palabras que presenta la recopilación de frecuencias recolectadas sobre la base de noticias relacionadas con las palabras clave con mayor asociación al político.</div>", unsafe_allow_html=True)
+        st.image("nube_george_forsyth.png", caption='Nube de palabras George Forsyth', width=600)
+        pass
+    elif grafico_seleccionado_nube == 'Nube de palabras Dina Boluarte':
+        st.markdown("<div style='text-align: justify; font-size: 20px;'>El gráfico muestra una nube de palabras que presenta la recopilación de frecuencias recolectadas sobre la base de noticias relacionadas con las palabras clave con mayor asociación a la política.</div>", unsafe_allow_html=True)
+        st.image("nube_palabras_dina.png", caption='Nube de palabras Dina Boluarte', width=600)
+        pass
+    elif grafico_seleccionado_nube == 'Nube de palabras Adriana Tudela':
+        st.markdown("<div style='text-align: justify; font-size: 20px;'>El gráfico muestra una nube de palabras que presenta la recopilación de frecuencias recolectadas sobre la base de noticias relacionadas con las palabras clave con mayor asociación a la política.</div>", unsafe_allow_html=True)
+        st.image("nube_adriana_tudela.png", caption='Nube de palabras Adriana Tudela', width=600)
+        pass
+    elif grafico_seleccionado_nube == 'Nube de palabras Guido Bellido':
+        st.markdown("<div style='text-align: justify; font-size: 20px;'>El gráfico muestra una nube de palabras que presenta la recopilación de frecuencias recolectadas sobre la base de noticias relacionadas con las palabras clave con mayor asociación al político.</div>", unsafe_allow_html=True)
+        st.image("nube_guido_bellido.png", caption='Nube de palabras Guido Bellido', width=600)
+        pass
+    elif grafico_seleccionado_nube == 'Nube de palabras Julio Guzmán':
+        st.markdown("<div style='text-align: justify; font-size: 20px;'>El gráfico muestra una nube de palabras que presenta la recopilación de frecuencias recolectadas sobre la base de noticias relacionadas con las palabras clave con mayor asociación al político.</div>", unsafe_allow_html=True)
+        st.image("nube_julio_guzman.png", caption='Nube de palabras Julio Guzmán', width=600)
+        pass
+    elif grafico_seleccionado_nube == 'Nube de palabras Modesto Montoya':
+        st.markdown("<div style='text-align: justify; font-size: 20px;'>El gráfico muestra una nube de palabras que presenta la recopilación de frecuencias recolectadas sobre la base de noticias relacionadas con las palabras clave con mayor asociación al político.</div>", unsafe_allow_html=True)
+        st.image("nube_modesto_montoya.png", caption='Nube de palabras Modesto Montoya', width=600)
+        pass
+    elif grafico_seleccionado_nube == 'Nube de palabras Jorge Pérez':
+        st.markdown("<div style='text-align: justify; font-size: 20px;'>El gráfico muestra una nube de palabras que presenta la recopilación de frecuencias recolectadas sobre la base de noticias relacionadas con las palabras clave con mayor asociación al político.</div>", unsafe_allow_html=True)
+        st.image("nube_de_palabras_jorge.png", caption='Nube de palabras Jorge Pérez', width=600)
+        pass
+    elif grafico_seleccionado_nube == 'Nube de palabras Yohny Lescano':
+        st.markdown("<div style='text-align: justify; font-size: 20px;'>El gráfico muestra una nube de palabras que presenta la recopilación de frecuencias recolectadas sobre la base de noticias relacionadas con las palabras clave con mayor asociación al político.</div>", unsafe_allow_html=True)
+        st.image("nube_lescano.png", caption='Nube de palabras Yohny Lescano', width=600)
+        pass
+
+#Finalmente, el apartado de Mapa interactivo, el cual direccionamos con un condicional elif
+elif pagina_seleccionada == 'Mapa interactivo':
+    
+    # Agregamos un título
+    st.markdown("<h1 style='text-align: center;'>Mapa interactivo por lugar de nacimiento</h1>", unsafe_allow_html=True)
+    #Agregamos una descripción
+    st.markdown("<div style='text-align: justify; font-size: 20px;'>Explora en este mapa interactivo los lugares de nacimiento de los candidatos presidenciales del 2026.</div>", unsafe_allow_html=True)
+    import streamlit.components.v1 as components
+    try:
+        with open("mapa_politicos.html", "r", encoding="utf-8") as f:
+            html_content = f.read()
+        components.html(html_content, height=700)
+    except FileNotFoundError:
+        st.error("No se encontró el archivo 'mapa_politicos.html'. Asegúrate de haberlo subido correctamente al repositorio.")
+     # La función components.html toma como primer argumento el contenido HTML que se desea mostrar.
+    # En este caso, el contenido HTML se lee desde el archivo "mapa_politicos.html".
+    # El argumento height se utiliza para especificar la altura del contenido HTML, en este caso 700 píxeles.
