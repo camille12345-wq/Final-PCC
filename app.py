@@ -15,8 +15,26 @@ pagina_seleccionada = st.sidebar.selectbox('Selecciona una página', paginas)
 
 if pagina_seleccionada == "Inicio":
     # Fondo superior
-    st.image("https://radiouno.pe/wp-content/uploads/2024/06/standard_standard_FACHADA_DEL_MINISTERIO__2__2_.jpg", use_column_width=True)
-
+    st.markdown(
+        f"""
+        <style>
+        .stApp {{
+            background-image: url("https://radiouno.pe/wp-content/uploads/2024/06/standard_standard_FACHADA_DEL_MINISTERIO__2__2_.jpg");
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-position: center;
+        }}
+        .titulo {{
+            background-color: rgba(255, 255, 255, 0.85);
+            padding: 2rem;
+            border-radius: 15px;
+            margin-top: 3rem;
+        }}
+        </style>
+        """,
+        unsafe_allow_html=True
+    )
     st.markdown("<h1 style='text-align: center; color: navy;'>Portal de Transparencia Electoral 2026</h1>", unsafe_allow_html=True)
     
     # Estructura en columnas para centrar el contenido
