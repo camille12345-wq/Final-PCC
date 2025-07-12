@@ -50,14 +50,14 @@ if pagina_seleccionada == "Inicio":
 
     with col2:
     # Texto de bienvenida centrado
-    st.markdown("""
-    <div style='background-color: white; padding: 20px; border-radius: 10px; color: black; text-align: center;'>
-        <p style='font-size: 18px;'>
-            Bienvenido al <strong>Portal de Transparencia</strong>, una herramienta ciudadana para conocer la trayectoria de los candidatos presidenciales del 2026 en Perú.<br><br>
-            Podrás revisar denuncias, ocupación, ingresos, experiencia política y más.
-        </p>
-    </div>
-    """, unsafe_allow_html=True)
+        st.markdown("""
+        <div style='background-color: white; padding: 20px; border-radius: 10px; color: black; text-align: center;'>
+            <p style='font-size: 18px;'>
+                Bienvenido al <strong>Portal de Transparencia</strong>, una herramienta ciudadana para conocer la trayectoria de los candidatos presidenciales del 2026 en Perú.<br><br>
+                Podrás revisar denuncias, ocupación, ingresos, experiencia política y más.
+            </p>
+        </div>
+        """, unsafe_allow_html=True)
 
     # Botón centrado
     if st.button("🔍 Ver candidatos"):
