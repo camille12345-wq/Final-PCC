@@ -60,10 +60,10 @@ if pagina_seleccionada == "Inicio":
         """, unsafe_allow_html=True)
     # Botón centrado
         if st.button("🔍 Ver candidatos"):
-        st.markdown(
-            "<p style='text-align: center; color: black;'>Haz clic en 'Denuncias' en el menú lateral izquierdo para ver la información de los candidatos.</p>",
-            unsafe_allow_html=True
-        )
+            st.markdown(
+                "<p style='text-align: center; color: black;'>Haz clic en 'Denuncias' en el menú lateral izquierdo para ver la información de los candidatos.</p>",
+                unsafe_allow_html=True
+            )
 #Apartado de denuncias
 elif pagina_seleccionada == 'Denuncias':
 
