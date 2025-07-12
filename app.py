@@ -60,16 +60,10 @@ if pagina_seleccionada == "Inicio":
         """, unsafe_allow_html=True)
 
         # Botón centrado dentro de la columna
-        st.markdown("""
-        <div style='text-align: center; margin-top: 20px;'>
-            <a href='#' style='text-decoration: none;'>
-                <button style='background-color: #cc0000; color: white; padding: 10px 25px; font-size: 16px; border: none; border-radius: 5px; cursor: pointer;'>
-                    🔍 Ver candidatos
-                </button>
-            </a>
-        </div>
-        """, unsafe_allow_html=True)
-
+        st.markdown("<div style='text-align: center;'>", unsafe_allow_html=True)
+    if st.button("🔍 Ver candidatos"):
+        st.markdown("<p style='text-align: center; color: black;'>Haz clic en 'Denuncias' en el menú lateral izquierdo para ver la información de los candidatos.</p>", unsafe_allow_html=True)
+    st.markdown("</div>", unsafe_allow_html=True)
 #Apartado de denuncias
 elif pagina_seleccionada == 'Denuncias':
 
