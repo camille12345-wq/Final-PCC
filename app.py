@@ -2,18 +2,18 @@ import streamlit as st
 import pandas as pd
 import plotly.express as px
 
-# Generamos 5 páginas en la aplicación web de Streamlit.
-# Generamos una página principal
+#Generamos 5 páginas en la aplicación web de Streamlit.
+#Generamos una página principal
 
-# Creamos la lista de páginas
+#Creamos la lista de páginas
 paginas = ['Inicio', 'Denuncias', 'Nubes de palabra', 'Gráficos interactivos', 'Mapa interactivo']
 
-# Creamos botones de navegación tomando la lista de páginas
+#Creamos botones de navegación tomando la lista de páginas
 pagina_seleccionada = st.sidebar.selectbox('Selecciona una página', paginas)
 
-# Generamos condicionales para mostrar el contenido de cada página
+#Generamos condicionales para mostrar el contenido de cada página
 if pagina_seleccionada == "Inicio":
-    # Fondo superior
+    #Esto corresponde al fondo superior
     st.markdown(
         f"""
         <style>
@@ -34,7 +34,7 @@ if pagina_seleccionada == "Inicio":
         """,
         unsafe_allow_html=True
     )
-    #Título personalizado
+    #Aquí nuestro título de página estilizado
     st.markdown(
     "<h1 style='padding: 15px; border-radius: 10px; text-align: center;'>"
     "<span style='color: #660000;'>Portal</span> "
@@ -45,11 +45,11 @@ if pagina_seleccionada == "Inicio":
     "</h1>",
     unsafe_allow_html=True
 )
-     # Estructura en columnas para centrar el contenido
+     #Con ello, creamos una estructura en columnas para centrar el contenido
     col1, col2, col3 = st.columns([1, 2, 1])
 
     with col2:
-        # Texto de bienvenida centrado
+        #Creamos un texto de bienvenida centrado
         st.markdown("""
         <div style='background-color: white; padding: 20px; border-radius: 10px; color: black; text-align: center;'>
             <p style='font-size: 18px;'>
@@ -59,25 +59,26 @@ if pagina_seleccionada == "Inicio":
         </div>
         """, unsafe_allow_html=True)
 
-        # Botón centrado dentro de la columna
+        #Botón centrado dentro de la columna que guía hacia el apartado de denuncias
         st.write('---')
         st.markdown("<div style='text-align: center;'>", unsafe_allow_html=True)
     if st.button("🔍 Ver candidatos"):
         st.markdown("<p style='background-color: white; text-align: center; color: black;'>Haz clic en 'Denuncias' en el menú lateral izquierdo para ver la información de los candidatos.</p>", unsafe_allow_html=True)
     st.markdown("</div>", unsafe_allow_html=True)
-#Apartado de denuncias
+
+#Ahora, el apartado de denuncias, la cual direccionamos con un condicional
 elif pagina_seleccionada == 'Denuncias':
 
-    # Cargar el archivo Excel
+    #Cargamos el archivo Excel de nuestra base de datos previamente realizada
     df = pd.read_excel('excel_base_de_datos.xlsx')
 
-    # Menú desplegable con los nombres
+    #Con las funciones disponibles de Streamlit, creamos un menú desplegable con los nombres
     politico = st.selectbox('Selecciona una figura política', df['Nombre'].unique())
 
-    # Filtrar datos del político seleccionado
+    #Esto nos sirve para filtrar datos del político seleccionado
     datos = df[df['Nombre'] == politico].iloc[0]
 
-    # Dividir en dos columnas: foto a la izquierda, datos a la derecha
+    #Usando 'with' y 'col', dividimos el contenido en dos columnas: foto a la izquierda, datos a la derecha
     col1, col2 = st.columns([1, 2])
 
     with col1:
@@ -89,7 +90,7 @@ elif pagina_seleccionada == 'Denuncias':
         st.write(f"**Partido:** {datos['Partido']}")
         st.write(f"**Lugar de nacimiento:** {datos['Lugar de nacimiento']}")
 
-    # Crear un DataFrame con los datos de denuncias
+    #Para realizar un cuadro con los datos de las denuncias creamos un DataFrame con las columnas correspondientes de nuestra base de datos
     denuncias_data = pd.DataFrame({
         'Código': [datos['Código']],
         'Nombre': [datos['Nombre']],
@@ -98,14 +99,24 @@ elif pagina_seleccionada == 'Denuncias':
         'URL de la denuncia': [datos['URL tipo noticia más frecuente']]
     })
 
-    # Mostrar la tabla
+    #Aquí, para mostrar la tabla
     st.write('---')
     st.write("### Información sobre denuncias")
     st.dataframe(denuncias_data)
 
-    # Nota aclaratoria
-    st.write("*Para ver la denuncia, copie y pegue el enlace en su navegador.*")
-    
+#Para que el usuario pueda ir directamente al link de la noticia referenciada en el cuadro, creamos un botón de link con las propias funciones de Streamlit
+#Antes de ello, realizamos un código para verificar si hay una URL sobre el candidato (en nuestra base, algunos no tienen o se desconoce)
+
+    if datos['URL tipo noticia más frecuente'] not in ['Ninguna', 'NK']:
+        #Creamos columnas adicionales para centrar el botón y se vea mejor
+        col1, col2, col3 = st.columns([1, 2, 1])
+        with col2:
+            st.link_button("Ir a la denuncia más frecuente del político", datos['URL tipo noticia más frecuente'])
+    else:
+        st.write("*No se ha encontrado un enlace de denuncia frecuente para este político.*")
+
+
+#Ahora, el apartado de gráficos interactivos, el cual direccionamos con un condicional elif
 elif  pagina_seleccionada == 'Gráficos interactivos':
 
     # Agregamos un título
@@ -164,13 +175,15 @@ elif  pagina_seleccionada == 'Gráficos interactivos':
         components.html(html_content, height=500)
         pass
 
+
+#Ahora, el apartado de Nubes de palabra, el cual direccionamos con un condicional elif
 elif  pagina_seleccionada == 'Nubes de palabra':
 
     # Agregamos un título
     st.markdown("<h1 style='text-align: center;'>Nubes de palabras: Recopilación de palabras más asociadas a las figuras políticas</h1>", unsafe_allow_html=True)
     
     # Creamos una lista de gráficos
-    graficos_nube = ['Nube de palabras César Acuña Peralta','Nube de palabras Rafael López Aliaga', 'Nube de palabras Keiko Fujimori', 'Nube de palabras Alfonso López-Chau', 'Nube de palabras Fernando Olivera', 'Nube de palabras Veronika Mendoza', 'Nube de palabras Martín Vizcarra', 'Nube de palabras Vladimir Cerrón',]
+    graficos_nube = ['Nube de palabras César Acuña Peralta','Nube de palabras Rafael López Aliaga', 'Nube de palabras Keiko Fujimori', 'Nube de palabras Alfonso López-Chau', 'Nube de palabras Fernando Olivera', 'Nube de palabras Veronika Mendoza', 'Nube de palabras Martín Vizcarra', 'Nube de palabras Vladimir Cerrón', 'Nube de palabras Waldemar Cerrón', 'Nube de palabras Alfredo Barnechea', 'Nube de palabras Phillip Butters', 'Nube de palabras Carlos Álvarez', 'Nube de palabras Susel Paredes', 'Nube de palabras Hernando de Soto', 'Nube de palabras Guillermo Bermejo', 'Nube de palabras José Luna Galvez', 'Nube de palabras Daniel Salaverry Villa',]
 
     # Creamos un cuadro de selección en la página de gráficos
     grafico_seleccionado_nube = st.selectbox('Selecciona un gráfico', graficos_nube)
@@ -209,4 +222,40 @@ elif  pagina_seleccionada == 'Nubes de palabra':
     elif grafico_seleccionado_nube == 'Nube de palabras Vladimir Cerrón':
         st.markdown("<div style='text-align: justify; font-size: 20px;'>El gráfico muestra una nube de palabras que presenta la recopilación de frecuencias recolectadas sobre la base de noticias relacionadas con las palabras clave con mayor asociación al político.</div>", unsafe_allow_html=True)
         st.image("nube_palabras_vladimircerron.png", caption='Nube de palabras Vladimir Cerrón', width=600)
+        pass
+    elif grafico_seleccionado_nube == 'Nube de palabras Waldemar Cerrón':
+        st.markdown("<div style='text-align: justify; font-size: 20px;'>El gráfico muestra una nube de palabras que presenta la recopilación de frecuencias recolectadas sobre la base de noticias relacionadas con las palabras clave con mayor asociación al político.</div>", unsafe_allow_html=True)
+        st.image("nube_palabras_wcerron.png", caption='Nube de palabras Waldemar Cerrón', width=600)
+        pass
+    elif grafico_seleccionado_nube == 'Nube de palabras Alfredo Barnechea':
+        st.markdown("<div style='text-align: justify; font-size: 20px;'>El gráfico muestra una nube de palabras que presenta la recopilación de frecuencias recolectadas sobre la base de noticias relacionadas con las palabras clave con mayor asociación al político.</div>", unsafe_allow_html=True)
+        st.image("nube_palabras_alfredo.png", caption='Nube de palabras Alfredo Barnechea', width=600)
+        pass
+    elif grafico_seleccionado_nube == 'Nube de palabras Phillip Butters':
+        st.markdown("<div style='text-align: justify; font-size: 20px;'>El gráfico muestra una nube de palabras que presenta la recopilación de frecuencias recolectadas sobre la base de noticias relacionadas con las palabras clave con mayor asociación al político.</div>", unsafe_allow_html=True)
+        st.image("nube_palabras_butters.png", caption='Nube de palabras Phillip Butters', width=600)
+        pass
+    elif grafico_seleccionado_nube == 'Nube de palabras Carlos Álvarez':
+        st.markdown("<div style='text-align: justify; font-size: 20px;'>El gráfico muestra una nube de palabras que presenta la recopilación de frecuencias recolectadas sobre la base de noticias relacionadas con las palabras clave con mayor asociación al político.</div>", unsafe_allow_html=True)
+        st.image("nube_palabras_alvarez.png", caption='Nube de palabras Carlos Álvarez', width=600)
+        pass
+    elif grafico_seleccionado_nube == 'Nube de palabras Susel Paredes':
+        st.markdown("<div style='text-align: justify; font-size: 20px;'>El gráfico muestra una nube de palabras que presenta la recopilación de frecuencias recolectadas sobre la base de noticias relacionadas con las palabras clave con mayor asociación al político.</div>", unsafe_allow_html=True)
+        st.image("nube_palabras_paredes.png", caption='Nube de palabras Susel Paredes', width=600)
+        pass
+    elif grafico_seleccionado_nube == 'Nube de palabras Hernando de Soto':
+        st.markdown("<div style='text-align: justify; font-size: 20px;'>El gráfico muestra una nube de palabras que presenta la recopilación de frecuencias recolectadas sobre la base de noticias relacionadas con las palabras clave con mayor asociación al político.</div>", unsafe_allow_html=True)
+        st.image("nube_palabras_soto.png", caption='Nube de palabras Hernando de Soto', width=600)
+        pass
+    elif grafico_seleccionado_nube == 'Nube de palabras Guillermo Bermejo':
+        st.markdown("<div style='text-align: justify; font-size: 20px;'>El gráfico muestra una nube de palabras que presenta la recopilación de frecuencias recolectadas sobre la base de noticias relacionadas con las palabras clave con mayor asociación al político.</div>", unsafe_allow_html=True)
+        st.image("nube_palabras_bermejo.png", caption='Nube de palabras Guillermo Bermejo', width=600)
+        pass
+    elif grafico_seleccionado_nube == 'Nube de palabras José Luna Galvez':
+        st.markdown("<div style='text-align: justify; font-size: 20px;'>El gráfico muestra una nube de palabras que presenta la recopilación de frecuencias recolectadas sobre la base de noticias relacionadas con las palabras clave con mayor asociación al político.</div>", unsafe_allow_html=True)
+        st.image("nube_palabras_joseluna.png", caption='Nube de palabras José Luna Galvez', width=600)
+        pass
+    elif grafico_seleccionado_nube == 'Nube de palabras Daniel Salaverry Villa':
+        st.markdown("<div style='text-align: justify; font-size: 20px;'>El gráfico muestra una nube de palabras que presenta la recopilación de frecuencias recolectadas sobre la base de noticias relacionadas con las palabras clave con mayor asociación al político.</div>", unsafe_allow_html=True)
+        st.image("nube_palabras_salaverry.png", caption='Nube de palabras Daniel Salaverry Villa', width=600)
         pass
