@@ -4,19 +4,13 @@ import plotly.express as px
 
 # Generamos 5 páginas en la aplicación web de Streamlit.
 # Generamos una página principal
-# Se asigna "Inicio" como página predeterminada
-if "pagina_seleccionada" not in st.session_state:
-    st.session_state.pagina_seleccionada = "Inicio"
 
 # Creamos la lista de páginas
 paginas = ['Inicio', 'Denuncias', 'Nubes de palabra', 'Gráficos interactivos', 'Mapa interactivo']
 
 # Creamos botones de navegación tomando la lista de páginas
-pagina_seleccionada = st.sidebar.selectbox(
-    'Selecciona una página',
-    paginas,
-    index=paginas.index(st.session_state.pagina_seleccionada)
-)
+pagina_seleccionada = st.sidebar.selectbox('Selecciona una página', paginas)
+
 # Generamos condicionales para mostrar el contenido de cada página
 if pagina_seleccionada == "Inicio":
     # Fondo superior
@@ -63,12 +57,9 @@ if pagina_seleccionada == "Inicio":
 </div>
 """, unsafe_allow_html=True)
 
-    # Botón que redirige a la sección de denuncias
+    # Botón que guía a la sección de denuncias
     if st.button("🔍 Ver candidatos"):
-        # Cambia la página seleccionada en session_state
-        st.session_state.pagina_seleccionada = "Denuncias"
-        # Recarga la app para mostrar esa nueva página
-        st.experimental_rerun()
+    st.info("Dirígete al menú lateral y selecciona la opción 'Denuncias'.")
 
 #Apartado de denuncias
 elif pagina_seleccionada == 'Denuncias':
