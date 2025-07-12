@@ -64,6 +64,8 @@ elif  pagina_seleccionada == 'Gráficos interactivos':
 
     # Creamos un cuadro de selección en la página de gráficos
     grafico_seleccionado = st.selectbox('Selecciona un gráfico', graficos)
+
+    st.write('---')
     
     # Mostramos el gráfico seleccionado
     if grafico_seleccionado == 'Nube de palabras Ocupaciones Laborales':
@@ -120,6 +122,8 @@ elif  pagina_seleccionada == 'Nubes de palabra':
 
     # Creamos un cuadro de selección en la página de gráficos
     grafico_seleccionado_nube = st.selectbox('Selecciona un gráfico', graficos_nube)
+    
+    st.write('---')
     
     # Mostramos el gráfico seleccionado
     if grafico_seleccionado_nube == 'Nube de palabras César Acuña Peralta':
