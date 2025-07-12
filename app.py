@@ -3,14 +3,20 @@ import pandas as pd
 import plotly.express as px
 
 # Generamos 5 páginas en la aplicación web de Streamlit.
-# Generamos una página principal, otra donde contaran su experiencia aprendiendo a programar y una tercera donde presentarán sus gráficos.
+# Generamos una página principal
+# Se asigna "Inicio" como página predeterminada
+if "pagina_seleccionada" not in st.session_state:
+    st.session_state.pagina_seleccionada = "Inicio"
 
 # Creamos la lista de páginas
 paginas = ['Inicio', 'Denuncias', 'Nubes de palabra', 'Gráficos interactivos', 'Mapa interactivo']
 
 # Creamos botones de navegación tomando la lista de páginas
-pagina_seleccionada = st.sidebar.selectbox('Selecciona una página', paginas)
-
+pagina_seleccionada = st.sidebar.selectbox(
+    'Selecciona una página',
+    paginas,
+    index=paginas.index(st.session_state.pagina_seleccionada)
+)
 # Generamos condicionales para mostrar el contenido de cada página
 if pagina_seleccionada == "Inicio":
     # Fondo superior
