@@ -15,7 +15,7 @@ pagina_seleccionada = st.sidebar.selectbox('Selecciona una página', paginas)
 
 if pagina_seleccionada == "Inicio":
     # Fondo superior
-    #st.image("standard_standard_FACHADA_DEL_MINISTERIO__2__2_.jpg", use_column_width=True)
+    st.image("https://radiouno.pe/wp-content/uploads/2024/06/standard_standard_FACHADA_DEL_MINISTERIO__2__2_.jpg", use_column_width=True)
 
     st.markdown("<h1 style='text-align: center; color: navy;'>Portal de Transparencia Electoral 2026</h1>", unsafe_allow_html=True)
     
