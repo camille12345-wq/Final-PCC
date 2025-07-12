@@ -14,7 +14,7 @@ pagina_seleccionada = st.sidebar.selectbox('Selecciona una página', paginas)
 # Generamos condicionales para mostrar el contenido de cada página
 
 
-elif pagina_seleccionada == 'Denuncias':
+if pagina_seleccionada == 'Denuncias':
 
     # Cargar el archivo Excel
     df = pd.read_excel('excel_base_de_datos.xlsx')
