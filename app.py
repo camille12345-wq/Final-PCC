@@ -95,13 +95,6 @@ elif  pagina_seleccionada == 'Gráficos interactivos':
             html_content = f.read()
         components.html(html_content, height=500)
         pass
-    elif grafico_seleccionado == 'Gráfico de barras de Cargos públicos previos':
-        st.markdown("<div style='text-align: justify; font-size: 20px;'>El gráfico de barras interactivo presenta una comparativa entre los cargos públicos ocupados por cada político.</div>", unsafe_allow_html=True)
-        import streamlit.components.v1 as components
-        with open("cargos_anteriores_barras.html", "r", encoding="utf-8") as f:
-            html_content = f.read()
-        components.html(html_content, height=500)
-        pass
     elif grafico_seleccionado == 'Gráfico de barras de Inmuebles y Muebles':
         st.markdown("<div style='text-align: justify; font-size: 20px;'>El gráfico de barras interactivo presenta una comparativa entre la cantidad de Inmuebles y muebles declarados por cada político.</div>", unsafe_allow_html=True)
         import streamlit.components.v1 as components
@@ -112,7 +105,7 @@ elif  pagina_seleccionada == 'Gráficos interactivos':
     elif grafico_seleccionado == 'Treemap comparativo Ocupación e Ingresos':
         st.markdown("<div style='text-align: justify; font-size: 20px;'>El gráfico Treemap interactivo presenta una comparativa entre la Ocupación laboral y el Ingreso anual por cada político.</div>", unsafe_allow_html=True)
         import streamlit.components.v1 as components
-        with open("ocupacion_inresos_treemap2.html", "r", encoding="utf-8") as f:
+        with open("ocupacion_ingresos_treemap2.html", "r", encoding="utf-8") as f:
             html_content = f.read()
         components.html(html_content, height=500)
         pass
