@@ -17,10 +17,11 @@ if pagina_seleccionada == "Inicio":
     # Fondo superior
     #st.image("standard_standard_FACHADA_DEL_MINISTERIO__2__2_.jpg", use_column_width=True)
 
+    st.markdown("<h1 style='text-align: center; color: navy;'>Portal de Transparencia Electoral 2026</h1>", unsafe_allow_html=True)
+    
     # Estructura en columnas para centrar el contenido
     col1, col2, col3 = st.columns([1, 2, 1])
     with col2:
-        st.markdown("<h1 style='text-align: center; color: navy;'>Portal de Transparencia Electoral 2026</h1>", unsafe_allow_html=True)
 
         st.markdown(
             """
