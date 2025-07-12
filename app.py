@@ -59,7 +59,7 @@ if pagina_seleccionada == "Inicio":
 
     # Botón que guía a la sección de denuncias
     if st.button("🔍 Ver candidatos"):
-    st.info("Dirígete al menú lateral y selecciona la opción 'Denuncias'.")
+        st.info("Dirígete al menú lateral y selecciona la opción 'Denuncias'.")
 
 #Apartado de denuncias
 elif pagina_seleccionada == 'Denuncias':
