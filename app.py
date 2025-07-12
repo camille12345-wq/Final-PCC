@@ -24,7 +24,7 @@ if pagina_seleccionada == "Inicio":
 
         st.markdown(
             """
-            <div style="text-align: justify; font-size: 17px; padding: 10px; background-color: #f0f2f6; border-radius: 10px;">
+            <div style="text-align: justify; font-size: 17px; padding: 10px; border-radius: 10px;">
                 Bienvenido al <strong>Portal de Transparencia</strong>, una herramienta ciudadana para conocer la trayectoria de los principales candidatos presidenciales del <strong>Perú 2026</strong>.
                 <br><br>
                 Explora denuncias, ingresos, ocupaciones, experiencia política, idiomas originarios, y mucho más. Una plataforma pensada para <i>votar de forma informada</i>.
