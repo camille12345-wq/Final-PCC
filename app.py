@@ -13,8 +13,34 @@ pagina_seleccionada = st.sidebar.selectbox('Selecciona una página', paginas)
 
 # Generamos condicionales para mostrar el contenido de cada página
 
+if pagina_seleccionada == "Inicio":
+    # Fondo superior
+    st.image("standard_standard_FACHADA_DEL_MINISTERIO__2__2_.jpg", use_column_width=True)
 
-if pagina_seleccionada == 'Denuncias':
+    # Estructura en columnas para centrar el contenido
+    col1, col2, col3 = st.columns([1, 2, 1])
+    with col2:
+        st.markdown("<h1 style='text-align: center; color: navy;'>Portal de Transparencia Electoral 2026</h1>", unsafe_allow_html=True)
+
+        st.markdown(
+            """
+            <div style="text-align: justify; font-size: 17px; padding: 10px; background-color: #f0f2f6; border-radius: 10px;">
+                Bienvenido al <strong>Portal de Transparencia</strong>, una herramienta ciudadana para conocer la trayectoria de los principales candidatos presidenciales del <strong>Perú 2026</strong>.
+                <br><br>
+                Explora denuncias, ingresos, ocupaciones, experiencia política, idiomas originarios, y mucho más. Una plataforma pensada para <i>votar de forma informada</i>.
+            </div>
+            """,
+            unsafe_allow_html=True
+        )
+
+        # Botón con estilo centrado
+        st.markdown("<br>", unsafe_allow_html=True)
+        boton = st.button("🔍 Ver candidatos", use_container_width=True)
+        if boton:
+            st.session_state.pagina_seleccionada = "Denuncias"
+            st.experimental_rerun()
+            
+elif pagina_seleccionada == 'Denuncias':
 
     # Cargar el archivo Excel
     df = pd.read_excel('excel_base_de_datos.xlsx')
