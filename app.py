@@ -36,7 +36,7 @@ if pagina_seleccionada == "Inicio":
     )
     #Título personalizado
     st.markdown(
-    "<h1 style='background-color: white; padding: 15px; border-radius: 10px; text-align: center;'>"
+    "<h1 style='padding: 15px; border-radius: 10px; text-align: center;'>"
     "<span style='color: #b22222;'>Portal</span> "
     "<span style='color: black;'>de</span> "
     "<span style='color: #b22222;'>Transparencia</span> "
