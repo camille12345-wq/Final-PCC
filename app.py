@@ -63,12 +63,12 @@ if pagina_seleccionada == "Inicio":
 </div>
 """, unsafe_allow_html=True)
 
-        # Botón con estilo centrado
-        st.markdown("<br>", unsafe_allow_html=True)
-        boton = st.button("🔍 Ver candidatos", use_container_width=True)
-        if boton:
-            st.session_state.pagina_seleccionada = "Denuncias"
-            st.experimental_rerun()
+    # Botón que redirige a la sección de denuncias
+    if st.button("🔍 Ver candidatos"):
+        # Cambia la página seleccionada en session_state
+        st.session_state.pagina_seleccionada = "Denuncias"
+        # Recarga la app para mostrar esa nueva página
+        st.experimental_rerun()
 
 #Apartado de denuncias
 elif pagina_seleccionada == 'Denuncias':
