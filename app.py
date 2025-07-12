@@ -113,7 +113,7 @@ elif  pagina_seleccionada == 'Gráficos interactivos':
 elif  pagina_seleccionada == 'Nubes de palabra':
 
     # Agregamos un título
-    st.markdown("<h1 style='text-align: center;'>Gráficos interactivos y comparación de variables en figuras políticas</h1>", unsafe_allow_html=True)
+    st.markdown("<h1 style='text-align: center;'>Nubes de palabras: Recopilación de palabras más asociadas a las figuras políticas</h1>", unsafe_allow_html=True)
     
     # Creamos una lista de gráficos
     graficos_nube = ['Nube de palabras César Acuña Peralta','Nube de palabras Rafael López Aliaga', 'Nube de palabras Keiko Fujimori', 'Nube de palabras Alfonso López-Chau', 'Nube de palabras Fernando Olivera', 'Nube de palabras Veronika Mendoza', 'Nube de palabras Martín Vizcarra', 'Nube de palabras Vladimir Cerrón',]
